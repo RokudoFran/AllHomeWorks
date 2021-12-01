@@ -10,12 +10,12 @@ namespace SecondHomeWork
             double a = GetDoubleNumberFromUser("Введите число а:");
             double b = GetDoubleNumberFromUser("Введите число b:");
             
-            string result = FindingASolutionByCondition(a, b);
+            string result = FindASolutionByCondition(a, b);
             
             Console.WriteLine($"{result}");
         }
 
-        public string FindingASolutionByCondition(double a, double b)
+        public string FindASolutionByCondition(double a, double b)
         {
             double rezult = 0;
 
@@ -50,62 +50,85 @@ namespace SecondHomeWork
             double x = GetDoubleNumberFromUser("Введите координату X");
             double y = GetDoubleNumberFromUser("Введите координату Y:");
 
-            string result = SearchQuarterX(x, y);
+            int result = SearchQuarterX(x, y);
 
-            Console.WriteLine($"{result}");
+            string resultMessage = ReturnTheMessageWithTheResult(result);
+
+            Console.WriteLine($"Точка с координатами ( {x} ; {y} ) лежит на {resultMessage}");
         }
 
-        public string SearchQuarterX(double x, double y)
+        public int SearchQuarterX(double x, double y)
         {
-            string message = "";
+            int result = 0;
 
             if ( x == 0 )
             {
-                message = SearchQuarterY(y, x, 0);
+                result = SearchQuarterY(y, x, 0);
             }
             else if ( x > 0 )
             {
-                message = SearchQuarterY(y, x, 1);
+                result = SearchQuarterY(y, x, 1);
             }
             else
             {
-                message = SearchQuarterY(y, x, 2);
+                result = SearchQuarterY(y, x, 2);
             }
 
-            return message;
+            return result;
         }
 
-        public string SearchQuarterY(double y, double x, int answer)
+        public int SearchQuarterY(double y, double x, int answer)
         {
-            string message = "";
+            int  result = 0;
+            
             if (y == 0)
             {
-                message = answer switch
+                result = answer switch
                 {
-                    0 => $"Точка с координатами( { x } : { y} ), лежит на начальной точке оси координат",
-                    1 => $"Точка с координатами ( {x} : {y} ), лежит на правой части оси X",
-                    2 => $"Точка с координатами ( {x} : {y} ), лежит на левой части оси X",
+                    0 => 0,
+                    1 => 7,
+                    2 => 5,
                 };
 
             }
             else if (y > 0)
             {
-                message = answer switch
+                result = answer switch
                 {
-                    0 => $"Точка с координатами ( {x} : {y} ), лежит на верхней части оси Y",
-                    1 => $"Точка с координатами ( {x} : {y} ), лежит на I четверти оси координат",
-                    2 => $"Точка с координатами ( {x} : {y} ), лежит на II четверти оси координат",
+                    0 => 8,
+                    1 => 1,
+                    2 => 2,
                 };
             }
             else
             {
-                message = answer switch
+                result = answer switch
                 {
-                    0 => $"Точка с координатами ( {x} : {y} ), лежит на нижней части оси Y",
-                    1 => $"Точка с координатами ( {x} : {y} ), лежит на IV четверти оси координат",
-                    2 => $"Точка с координатами ( {x} : {y} ), лежит на III четверти оси координат",
+                    0 => 6,
+                    1 => 4,
+                    2 => 3,
                 };
             }
+
+            return result;
+        }
+
+        public string ReturnTheMessageWithTheResult(int quarter)
+        {
+            string message = "";
+
+            message = quarter switch
+            {
+                0 => " начальной точке Оси координат.",
+                1 => " I четверти Оси координат.",
+                2 => " II четверти Оси координат.",
+                3 => " III четверти Оси координат.",
+                4 => " IV четверти Оси координат.",
+                5 => " левой части Оси X.",
+                6 => " нижней части Оси Y.",
+                7 => " правой части Оси X.",
+                8 => " верхней части Оси Y.",
+            };
 
             return message;
         }
@@ -118,12 +141,12 @@ namespace SecondHomeWork
             double b = GetDoubleNumberFromUser("Введите переменную B:");
             double c = GetDoubleNumberFromUser("Введите переменную C:");
 
-            string result =SortedAscending(a, b, c);
+            string result = SortVariablesAscending(a, b, c);
 
             Console.WriteLine($"Результат третьей задачи: {result}");
         }
 
-        public string SortedAscending(double a, double b, double c)
+        public string SortVariablesAscending(double a, double b, double c)
         {
             string message = "";
 
@@ -175,12 +198,12 @@ namespace SecondHomeWork
             double b = GetDoubleNumberFromUser("Введите переменную B:");
             double c = GetDoubleNumberFromUser("Введите переменную C:");
 
-            double[] result = SolvingEquations(a, b, c);
+            double[] result = SolveSquareEquation(a, b, c);
 
             Console.WriteLine($"Решение квадратного уравнения стандартного вида, где A * X * X + B * X + C = 0. : {result}");
         }
 
-        public double[] SolvingEquations(double a, double b, double c)
+        public double[] SolveSquareEquation(double a, double b, double c)
         {
             double x1 = 0;
             double x2 = 0;
@@ -215,12 +238,12 @@ namespace SecondHomeWork
         {
             int a = GetIntNumberFromUser("Введите двухзначное число:");
 
-            string result = TransformationIntByString(a);
+            string result = ReturnTheAlphabeticDesignationOfANumber(a);
 
             Console.WriteLine($"Результат пятой задачи: {result}");
         }
 
-        public string TransformationIntByString(int a)
+        public string ReturnTheAlphabeticDesignationOfANumber(int a)
         {
             string message = "";
 

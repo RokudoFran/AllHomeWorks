@@ -10,12 +10,12 @@ namespace ThirdHomeWork
             double a = GetDoubleNumberFromUser("Введите число A:");
             int b = GetIntNumberFromUser("Введите введите степень числа B:");
 
-            double result = Exponentiation(a, b);
+            double result = RaiseNumberAToPowerB(a, b);
 
             Console.WriteLine($"Число {a} в степени {b} = {result}");
         }
 
-        public double Exponentiation(double a, int b)
+        public double RaiseNumberAToPowerB(double a, int b)
         {
             double c = 1;
             int b1 = Math.Abs(b);
@@ -48,12 +48,12 @@ namespace ThirdHomeWork
         {
             int a = GetIntNumberFromUser("Введите число A:");
 
-            int[] result = SearchMultiplesOfA(a);
+            int[] result = GetNumbersDivisibleByA(a);
 
             Console.WriteLine($"Числа кратные A от 1 до 1000 : {result}");
         }
 
-        public int[] SearchMultiplesOfA(int a)
+        public int[] GetNumbersDivisibleByA(int a)
         {
             int lengthM = 1000 / a;
             int[] result = new int[lengthM];
@@ -82,12 +82,12 @@ namespace ThirdHomeWork
         {
             int a = GetIntNumberFromUser("Введите число A:");
 
-            int result = SearchOfNumber(a);
+            int result = FindTheSomeNumberOfPositiveIntegersWhoseSquareIsLessThanA(a);
 
             Console.WriteLine($" Количество положительных целых чисел, квадрат которых меньше A = {a}, равно {result}");
         }
 
-        public int SearchOfNumber(int a)
+        public int FindTheSomeNumberOfPositiveIntegersWhoseSquareIsLessThanA(int a)
         {
             if (a <= 0)
             {
@@ -112,12 +112,12 @@ namespace ThirdHomeWork
         {
             int a = GetIntNumberFromUser("Введите число A:");
 
-            int result = FindingGreatestDivisor(a);
+            int result = FindGreatestDivisor(a);
 
             Console.WriteLine($" Наибольшим делителем числа А = {a}, является число равное {result}");
         }
 
-        public int FindingGreatestDivisor(int a)
+        public int FindGreatestDivisor(int a)
         {
             int delitel = 0;
 
@@ -152,34 +152,24 @@ namespace ThirdHomeWork
             int a = GetIntNumberFromUser("Введите число A:");
             int b = GetIntNumberFromUser("Введите число B:");
 
-            int result = FindingMultiplesOfSeven(a, b);
+            int result = FindMultiplesOfSeven(ref a, ref b);
 
-            Console.WriteLine($"Сумма всех чисел из диапазона от A = {a} до B = {b} , которые делятся без остатка на 7, равна {result}");
+            Console.WriteLine($"Сумма всех чисел из диапазона от {a} до {b} , которые делятся без остатка на 7, равна {result}");
         }
 
-        public int FindingMultiplesOfSeven(int a, int b)
+        public int FindMultiplesOfSeven(ref int a, ref int b)
         {
-            int up = 0;
-            int down = 0;
+            
             int c = 0;
 
             if (a == 0 && b == 0)
             {
                 throw new ArgumentNullException("Числа A и B равны нулю");
             }
-            
-            if (a < b)
-            {
-                up = a;
-                down = b;
-            }
-            else
-            {
-                down = b;
-                up = a;
-            }
 
-            for (int i = down; i <= up; i++)
+            SwapOfValues(ref a, ref b);
+
+            for (int i = a; i <= b; i++)
             {
                 if (i % 7 == 0)
                 {
@@ -191,6 +181,20 @@ namespace ThirdHomeWork
             
         }
 
+        public void SwapOfValues(ref int a, ref int b)
+        {
+            int c;
+
+            if ( a < b )
+            {
+                c = a;
+                a = b;
+                b = c;
+            }
+
+        }
+
+
         //Пользователь вводит 1 число (N).
         //Выведите N-ое число ряда фибоначчи.
         //В ряду фибоначчи каждое следующее число является суммой двух предыдущих.
@@ -199,12 +203,12 @@ namespace ThirdHomeWork
         {
             int n = GetIntNumberFromUser("Введите порядковый номер числа ряда Фибоначи:");
 
-            int result = FindingFibonacciNumber(n);
+            int result = FindFibonacciNumber(n);
 
             Console.WriteLine($" число {n} ряда Фибоначи равно {result}");
         }
 
-        public int FindingFibonacciNumber (int n)
+        public int FindFibonacciNumber (int n)
         {
             int a = 1;
             int b = 1;
@@ -213,6 +217,7 @@ namespace ThirdHomeWork
             if (n > 0)
             {
                 c = 1;
+
                 for (int i = 1; i < n - 1; i++)
                 {
                     c = a + b;
@@ -224,6 +229,7 @@ namespace ThirdHomeWork
             {
                 b = -1;
                 c = 1;
+
                 for (int i = -1; i < n + 1; i--)
                 {
                     c = a - b;
@@ -242,12 +248,12 @@ namespace ThirdHomeWork
             int a = GetIntNumberFromUser("Введите число A:");
             int b = GetIntNumberFromUser("Введите число B:");
 
-            int result = FindingGreatestCommonDivisorAAndB(a, b);
+            int result = FindGreatestCommonDivisorOfTwoIntegers(a, b);
 
             Console.WriteLine($"Наибольший общий делитель чисел А = {a} и B = {b} равен {result}");
         }
 
-        public int FindingGreatestCommonDivisorAAndB(int a, int b)
+        public int FindGreatestCommonDivisorOfTwoIntegers(int a, int b)
         {
             int gcd = Math.Abs(a + b);
 

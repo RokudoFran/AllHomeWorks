@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllHomeWorks", "AllHomeWorks\AllHomeWorks.csproj", "{56A4D329-D706-4E03-A055-5FEC3628D85D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllHomeWorks", "AllHomeWorks\AllHomeWorks.csproj", "{56A4D329-D706-4E03-A055-5FEC3628D85D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstHomeWork", "FirstHomeWork\FirstHomeWork.csproj", "{9A987E11-F5E8-4DB1-BE21-2B203E2B7FA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstHomeWork", "FirstHomeWork\FirstHomeWork.csproj", "{9A987E11-F5E8-4DB1-BE21-2B203E2B7FA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondHomeWork", "SecondHomeWork\SecondHomeWork.csproj", "{B2F58FBD-EB2C-43CA-879E-2A5FF11AB820}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecondHomeWork", "SecondHomeWork\SecondHomeWork.csproj", "{B2F58FBD-EB2C-43CA-879E-2A5FF11AB820}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThirdHomeWork", "ThirdHomeWork\ThirdHomeWork.csproj", "{EDFE47BB-0049-4129-9717-FAB83403DC7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThirdHomeWork", "ThirdHomeWork\ThirdHomeWork.csproj", "{EDFE47BB-0049-4129-9717-FAB83403DC7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FourthHomeWork", "FourthHomeWork\FourthHomeWork.csproj", "{112A8A33-5F07-4926-AB49-F790EA396EDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FourthHomeWork", "FourthHomeWork\FourthHomeWork.csproj", "{112A8A33-5F07-4926-AB49-F790EA396EDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FifthHomeWork", "FifthHomeWork\FifthHomeWork.csproj", "{2587D5F6-0E44-4077-B9D7-458786B3B9F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FifthHomeWork", "FifthHomeWork\FifthHomeWork.csproj", "{2587D5F6-0E44-4077-B9D7-458786B3B9F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

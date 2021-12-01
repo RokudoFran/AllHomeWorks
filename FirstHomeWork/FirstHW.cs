@@ -10,12 +10,12 @@ namespace FirstHomeWork
             double a = GetDoubleNumberFromUser("Введите число а:");
             double b = GetDoubleNumberFromUser("Введите число b:");
             
-            double result = SolutionExampleFirstTask(a, b);
+            double result = SolveExampleFirstTask(a, b);
             
             Console.WriteLine($"Решение (5 * A + B * B) / (B - A) = {result}");
         }
 
-        public double SolutionExampleFirstTask(double a, double b)
+        public double SolveExampleFirstTask(double a, double b)
         {
             double result = 0;
             
@@ -35,13 +35,13 @@ namespace FirstHomeWork
         {
             string a = GetStringFromUser("Введите строку A:");
             string b = GetStringFromUser("Введите строку B:");
-            
-            string result = ExchangeOfValues(a, b);
-            
-            Console.WriteLine($"Результат второй задачи: {result}");
+
+            SwapOfValues(ref a, ref b);
+
+            Console.WriteLine($"Результат второй задачи: A={a} ; B={b}");
         }
 
-        public string ExchangeOfValues(string a, string b)
+        public void SwapOfValues(ref string a, ref string b)
         {
             string c;
 
@@ -49,7 +49,6 @@ namespace FirstHomeWork
             a = b;
             b = c;
 
-            return ($"A = {a}, B = {b}");
         }
 
         //Пользователь вводит 2 числа (A и B).
@@ -59,12 +58,12 @@ namespace FirstHomeWork
             int a = GetIntNumberFromUser("Введите переменную A:");
             int b = GetIntNumberFromUser("Введите переменную B:");
             
-            int[] result = DivisionAByB(a, b);
+            int[] result = DivideAByB(a, b);
             
             Console.WriteLine($"Результат деления A на B и остаток от деления: {result}");
         }
 
-        public int[] DivisionAByB(int a, int b)
+        public int[] DivideAByB(int a, int b)
         {
             int del;
             int ost;
@@ -88,12 +87,12 @@ namespace FirstHomeWork
             double b = GetDoubleNumberFromUser("Введите переменную B:");
             double c = GetDoubleNumberFromUser("Введите переменную C:");
             
-            double result = SolutionExampleSecondTask(a, b, c);
+            double result = SolveExampleSecondTask(a, b, c);
             
             Console.WriteLine($"Решение уравнения {a} * X + {b} = {c} : {result}");
         }
 
-        public double SolutionExampleSecondTask(double a, double b, double c)
+        public double SolveExampleSecondTask(double a, double b, double c)
         {
             double x = 0;
             if (a == 0)
@@ -116,12 +115,12 @@ namespace FirstHomeWork
             double x2 = GetDoubleNumberFromUser("Введите координату X2:");
             double y2 = GetDoubleNumberFromUser("Введите координату Y2:");
             
-            string result = FindingAnEquation(x1, y1, x2, y2);
+            string result = FindAnEquation(x1, y1, x2, y2);
             
             Console.WriteLine($"Уравнение прямой : {result}");
         }
 
-        public string FindingAnEquation(double x1, double y1, double x2, double y2)
+        public string FindAnEquation(double x1, double y1, double x2, double y2)
         {
             double a;
             double b;
