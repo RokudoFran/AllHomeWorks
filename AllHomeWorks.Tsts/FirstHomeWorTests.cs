@@ -39,8 +39,12 @@ namespace AllHomeWorks.Tests
         [TestCase(30, 4, new int[] { 7, 4 })]
         public void DivideAByBTest(int a, int b, int[] expected)
         {
+            //arrange
+
+            //act
             int[] actual = _hw1.DivideAByB(a, b);
 
+            //assert
             Assert.AreEqual(expected, actual);
         }
 
@@ -48,6 +52,9 @@ namespace AllHomeWorks.Tests
         [TestCase(4, 30)]
         public void DivideAByBNegativeTest(int a, int b)
         {
+            //arrange
+
+            //act,assert
             Assert.Throws<ArgumentOutOfRangeException>(() => _hw1.DivideAByB(a, b));
         }
 
@@ -55,14 +62,21 @@ namespace AllHomeWorks.Tests
         [TestCase(3, 4, 10, 2)]
         public void SolveExampleSecondTaskTest(double a, double b, double c, double expected)
         {
+            //arrange
+
+            //act
             double actual = _hw1.SolveExampleSecondTask(a, b, c);
 
+            //assert
             Assert.AreEqual(expected, actual);
         }
 
         [TestCase(0, 4, 2)]
         public void SolveExampleSecondTaskNegativeTest(double a, double b, double c)
         {
+            //arrange
+
+            //act,assert
             Assert.Throws<ArgumentNullException>(() => _hw1.SolveExampleSecondTask(a, b, c));
         }
 
@@ -72,14 +86,21 @@ namespace AllHomeWorks.Tests
         [TestCase(8, 3, 9, 4, " Y = 1X - 5")]
         public void FindAnEquationTest(double x1, double y1, double x2, double y2, string expected)
         {
+            //arrange
+
+            //act
             string actual = _hw1.FindAnEquation(x1, y1, x2, y2);
 
+            //assert
             Assert.AreEqual(expected, actual);
         }
 
         [TestCase(5, 5, 5, 5)]
         public void FindAnEquationNegativeTest(double x1, double y1, double x2, double y2)
         {
+            //arrange
+
+            //act,assert
             Assert.Throws<ArgumentOutOfRangeException>(() => _hw1.FindAnEquation(x1, y1, x2, y2));
         }
     }
