@@ -218,14 +218,14 @@ namespace SecondHomeWork
             
             if (d == 0)
             {
-                x1 = -b / 2 * a;
+                x1 = -b / (2 * a);
                 
                 return new double[] {x1};
             }
             else
             {
-                x1 = (-b + Math.Sqrt(d)) / 2 * a;
-                x2 = (-b - Math.Sqrt(d)) / 2 * a;
+                x1 = (-b + Math.Sqrt(d)) / (2 * a);
+                x2 = (-b - Math.Sqrt(d)) / (2 * a);
                 
                 return new double[] { x1, x2 };
             }
@@ -238,15 +238,11 @@ namespace SecondHomeWork
         {
             int a = GetIntNumberFromUser("Введите двухзначное число:");
 
-            string result = ReturnTheAlphabeticDesignationOfANumber(a);
-
-            Console.WriteLine($"Результат пятой задачи: {result}");
+            Console.WriteLine($"Результат пятой задачи: {ReturnTheAlphabeticDesignationOfANumber(a)}");
         }
 
         public string ReturnTheAlphabeticDesignationOfANumber(int a)
         {
-            string message = "";
-
             int des = 0, ed = 0;
 
             des = a / 10;
@@ -257,53 +253,55 @@ namespace SecondHomeWork
                 throw new ArgumentOutOfRangeException ("Необходимо двухзначное число большее 10 и меньшее 99");
             }
 
-                if ( a > 9 || a < 20)
+            string message;
+            if (a > 9 || a < 20)
+            {
+                message = a switch
                 {
-                    message = a switch
-                    {
-                        10 => "Десять",
-                        11 => "Одинадцать",
-                        12 => "Двенадцать",
-                        13 => "Тринадцать",
-                        14 => "Четырнадцать",
-                        15 => "Пятнадцать",
-                        16 => "Шестнадцать",
-                        17 => "Семнадцать",
-                        18 => "Восемндацать",
-                        19 => "Девятнадцать",
-                    };
-                }
-                else
+                    10 => "Десять",
+                    11 => "Одинадцать",
+                    12 => "Двенадцать",
+                    13 => "Тринадцать",
+                    14 => "Четырнадцать",
+                    15 => "Пятнадцать",
+                    16 => "Шестнадцать",
+                    17 => "Семнадцать",
+                    18 => "Восемндацать",
+                    19 => "Девятнадцать",
+                };
+            }
+            else
+            {
+                message = des switch
                 {
-                    message = des switch
-                    {
-                        20 => "Двадцать",
-                        30 => "Тридцать",
-                        40 => "Сорок",
-                        50 => "Пятьдесят",
-                        60 => "Шестьдесят",
-                        70 => "Семь",
-                        80 => "Восемьдесят",
-                        90 => "Девяносто",
-                    };
+                    2 => "Двадцать",
+                    3 => "Тридцать",
+                    4 => "Сорок",
+                    5 => "Пятьдесят",
+                    6 => "Шестьдесят",
+                    7 => "Семь",
+                    8 => "Восемьдесят",
+                    9 => "Девяносто",
+                };
 
-                    message += ed switch
-                    {
-                        0 => "",
-                        1 => " Один",
-                        2 => " Два",
-                        3 => " Три",
-                        4 => " Четыре",
-                        5 => " Пять",
-                        6 => " Шесть",
-                        7 => " Семь",
-                        8 => " Восемь",
-                        9 => " Девять",
-                    };
-                }
+                message += ed switch
+                {
+                    0 => "",
+                    1 => " Один",
+                    2 => " Два",
+                    3 => " Три",
+                    4 => " Четыре",
+                    5 => " Пять",
+                    6 => " Шесть",
+                    7 => " Семь",
+                    8 => " Восемь",
+                    9 => " Девять",
+                };
+            }
 
             return message;
         }
+
         public int GetIntNumberFromUser(string message)
         {
             Console.WriteLine(message);

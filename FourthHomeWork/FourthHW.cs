@@ -68,7 +68,7 @@ namespace FourthHomeWork
 
             for (i = 0; i < array.Length; i++)
             {
-                if (array[i] < maxValue)
+                if (array[i] > maxValue)
                 {
                     maxValue = array[i];
                     maxIndex = i;

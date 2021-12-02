@@ -55,14 +55,15 @@ namespace ThirdHomeWork
 
         public int[] GetNumbersDivisibleByA(int a)
         {
+            if ((a == 0) || (Math.Abs( a ) > 1000))
+            {
+                throw new ArgumentOutOfRangeException(" Число a равно нулю или больше 1000 по модулю ");
+            }
+
             int lengthM = 1000 / a;
             int[] result = new int[lengthM];
             int n = 0;
 
-            if ((a == 0) || (Math.Abs(a) > 1000))
-            {
-                throw new ArgumentOutOfRangeException(" Число a равно нулю или больше 1000 по модулю ");
-            }
             
             for (int i = 1; i <= 1000; i++)
             {
@@ -101,7 +102,9 @@ namespace ThirdHomeWork
                 b++;
             }
 
-            return b--;
+            b--;
+
+            return b;
             
 
         }
@@ -175,7 +178,7 @@ namespace ThirdHomeWork
                 {
                     c += i;
                 }
-             }
+            }
 
             return c;
             
@@ -183,9 +186,9 @@ namespace ThirdHomeWork
 
         public void SwapOfValues(ref int a, ref int b)
         {
-            int c;
+            int c = 0;
 
-            if ( a < b )
+            if ( b < a )
             {
                 c = a;
                 a = b;
@@ -208,16 +211,18 @@ namespace ThirdHomeWork
             Console.WriteLine($" число {n} ряда Фибоначи равно {result}");
         }
 
-        public int FindFibonacciNumber (int n)
+        public int FindFibonacciNumber(int n)
         {
             int a = 1;
             int b = 1;
-            int c = 0;
+            int c = 1;
 
-            if (n > 0)
+            if(n==0)
             {
-                c = 1;
-
+                return 0;
+            }
+            else if (n > 0)
+            {
                 for (int i = 1; i < n - 1; i++)
                 {
                     c = a + b;
@@ -225,16 +230,22 @@ namespace ThirdHomeWork
                     b = c;
                 }
             }
-            else if (n < 0)
+            else
             {
-                b = -1;
-                c = 1;
-
                 for (int i = -1; i < n + 1; i--)
                 {
-                    c = a - b;
-                    a = b;
-                    b = c;
+                    if (n % 2 == 0)
+                    {
+                        c = Math.Abs(a + b);
+                        a = b;
+                        b = -c;
+                    }
+                    else
+                    {
+                        c = Math.Abs(a + b);
+                        a = b;
+                        b = c;
+                    }
                 }
             }
 

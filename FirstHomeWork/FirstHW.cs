@@ -95,6 +95,7 @@ namespace FirstHomeWork
         public double SolveExampleSecondTask(double a, double b, double c)
         {
             double x = 0;
+
             if (a == 0)
             {
                 throw new ArgumentNullException("Нет решения");
