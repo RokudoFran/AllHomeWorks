@@ -289,12 +289,12 @@ namespace ThirdHomeWork
         {
             int a = GetIntNumberFromUser("Введите число A:");
 
-            int result = FindTheRootOfACube(a);
+            int result = FindTheRootOfACubeByHalfDivision(a);
 
             Console.WriteLine($" Число А = {a}, является кубом числа {result}");
         }
 
-        public int FindTheRootOfACube(int a)
+        public int FindTheRootOfACubeByHalfDivision(int a)
         {
             int right = a;
             int left = 0;
@@ -336,12 +336,12 @@ namespace ThirdHomeWork
         {
             int a = GetIntNumberFromUser("Введите число A:");
 
-            int result = FindOddDigitsOfANumber(a);
+            int result = FindTheSomeOddDigitsOfANumber(a);
 
             Console.WriteLine($" Кол-во нечетных чисел числа A = {a} равно {result}");
         }
 
-        public int FindOddDigitsOfANumber(int a)
+        public int FindTheSomeOddDigitsOfANumber(int a)
         {
             int even = 0;
             int odd = 0;
@@ -377,16 +377,16 @@ namespace ThirdHomeWork
         {
             int a = GetIntNumberFromUser("Введите число A:");
 
-            int result = SearchMirrorImage(a);
+            int result = SearchBackwardNumber(a);
 
             Console.WriteLine($" Зеркальным отображением числа A={a} является число {result}");
         }
 
-        public int SearchMirrorImage(int a)
+        public int SearchBackwardNumber(int a)
         {
             int a1 = Math.Abs(a);
             int b = 0;
-            int zer = 0;
+            int backwardNumber = 0;
 
             if (a == 0)
             {
@@ -396,21 +396,21 @@ namespace ThirdHomeWork
             while (a1 > 0)
             {
                 b = a1 % 10;
-                zer = zer * 10 + b;
+                backwardNumber = backwardNumber * 10 + b;
                 a1 = a1 / 10;
 
             }
 
             if (a > 0)
             {
-                zer = Math.Abs(zer);
+                backwardNumber = Math.Abs(backwardNumber);
             }
             else
             {
-                zer = -zer;
+                backwardNumber = -backwardNumber;
             }
             
-            return zer;
+            return backwardNumber;
         }
 
         //Пользователь вводит целое положительное  число (N).
@@ -485,17 +485,17 @@ namespace ThirdHomeWork
             int a = GetIntNumberFromUser("Введите число A:");
             int b = GetIntNumberFromUser("Введите число B:");
 
-            string result = SearchForIdenticalNumbers(a, b);
+            string result = CheckForDuplicateNumbers(a, b);
 
             Console.WriteLine($"{result}");
         }
 
-        public string SearchForIdenticalNumbers(int a, int b)
+        public string CheckForDuplicateNumbers(int a, int b)
         {
             int a1 = Math.Abs(a);
             int b1 = Math.Abs(b);
 
-            int srav = 0;
+            int comparison = 0;
             int i = 0;
             int j = 0;
             string result = "";
@@ -508,7 +508,7 @@ namespace ThirdHomeWork
                     j = b1 % 10;
                     if (i == j)
                     {
-                        srav++;
+                        comparison++;
                     }
 
                     b1 /= 10;
@@ -520,7 +520,7 @@ namespace ThirdHomeWork
             }
             while (a1 > 0);
 
-            if (srav != 0)
+            if (comparison != 0)
             {
                 result = "YES";
             }

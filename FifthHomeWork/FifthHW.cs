@@ -13,14 +13,17 @@ namespace FifthHomeWork
             int a = GetIntNumberFromUser("Введите диапазон чисел для заполнения массива от:");
             int b = GetIntNumberFromUser("до:");
 
-            int[,] array = FormingAndFillingAnDoubleArray(line,column, a, b);
+            int[,] array = CreateAndPopulatAnDoubleArray(line,column, a, b);
 
-            string result = SearchMinElementDoubleArray(array);
+            Console.WriteLine("Массив");
+            OutputArray(array);
+
+            string result = SearchMinElementAndItsIndex(array);
 
             Console.WriteLine($"Минимальный эллемент массива = {result}");
         }
 
-        public string SearchMinElementDoubleArray(int[,] array)
+        public string SearchMinElementAndItsIndex(int[,] array)
         {
             int i = 0;
             int j = 0;
@@ -60,14 +63,17 @@ namespace FifthHomeWork
             int a = GetIntNumberFromUser("Введите диапазон чисел для заполнения массива от:");
             int b = GetIntNumberFromUser("до:");
 
-            int[,] array = FormingAndFillingAnDoubleArray(line, column, a, b);
+            int[,] array = CreateAndPopulatAnDoubleArray(line, column, a, b);
 
-            string result = SearchMaxElementDoubleArray(array);
+            Console.WriteLine("Массив");
+            OutputArray(array);
+
+            string result = SearchMaxElementAndItsIndex(array);
 
             Console.WriteLine($"Максимальный эллемент массива = {result}");
         }
 
-        public string SearchMaxElementDoubleArray(int[,] array)
+        public string SearchMaxElementAndItsIndex(int[,] array)
         {
             int i = 0;
             int j = 0;
@@ -105,15 +111,18 @@ namespace FifthHomeWork
             int a = GetIntNumberFromUser("Введите диапазон чисел для заполнения массива от:");
             int b = GetIntNumberFromUser("до:");
 
-            int[,] array = FormingAndFillingAnDoubleArray(line, column, a, b);
+            int[,] array = CreateAndPopulatAnDoubleArray(line, column, a, b);
 
-            string result = FindingArrayElementsThatAreLargerThanNeighbors(array);
+            Console.WriteLine("Массив");
+            OutputArray(array);
+
+            string result = GetElementsLargerThanNeighbors(array);
 
             Console.WriteLine
             ($"Количество элементов массива, которые больше всех своих соседей одновременно равно{result}");
         }
 
-        public string FindingArrayElementsThatAreLargerThanNeighbors(int[,] array)
+        public string GetElementsLargerThanNeighbors(int[,] array)
         {
             int i = 0;
             int j = 0;
@@ -132,10 +141,10 @@ namespace FifthHomeWork
                 for (j = 0; j < column; j++)
                 {
                     if (
-                            ((j == column - 1) || (array[i, j] > array[i, j + 1])) &&
-                            ((j == 0) || (array[i, j] > array[i, j - 1])) &&
-                            ((i == 0) || (array[i, j] > array[i - 1, j])) &&
-                            ((i == line - 1) || (array[i, j] > array[i + 1, j]))
+                            ( (j == column - 1) || (array[i, j] > array[i, j + 1]) ) &&
+                            ( (j == 0) || (array[i, j] > array[i, j - 1]) ) &&
+                            ( (i == 0) || (array[i, j] > array[i - 1, j]) ) &&
+                            ( (i == line - 1) || (array[i, j] > array[i + 1, j]) )
                         )
                     {
                         elements += $" {array[i, j]} [{i},{j}] ;";
@@ -156,15 +165,19 @@ namespace FifthHomeWork
             int a = GetIntNumberFromUser("Введите диапазон чисел для заполнения массива от:");
             int b = GetIntNumberFromUser("до:");
 
-            int[,] array = FormingAndFillingAnDoubleArray(line, line, a, b);
+            int[,] array = CreateAndPopulatAnDoubleArray(line, line, a, b);
 
-            string result = FindingArrayElementsThatAreLargerThanNeighbors(array);
+            Console.WriteLine("Массив до");
+            OutputArray(array);
 
-            Console.WriteLine
-            ($"Количество элементов массива, которые больше всех своих соседей одновременно равно{result}");
+            FlipAnArrayAlongTheMainDiagonal(array);
+
+            Console.WriteLine("Массив после");
+            OutputArray(array);
+
         }
 
-        public int[,] ReflectionOfAnArrayRelativeToTheMainDiagonal(int[,] array)
+        public void FlipAnArrayAlongTheMainDiagonal(int[,] array)
         {
             int i = 0;
             int j = 0;
@@ -183,11 +196,10 @@ namespace FifthHomeWork
                 }
             }
 
-            return array;
         }
 
         //
-        public int[,] FormingAndFillingAnDoubleArray(int line, int column, int a, int b)
+        public int[,] CreateAndPopulatAnDoubleArray(int line, int column, int a, int b)
         {
             int[,] array = new int[line,column];
             Random rnd = new Random();
@@ -214,6 +226,25 @@ namespace FifthHomeWork
             int number = Convert.ToInt32(Console.ReadLine());
 
             return number;
+        }
+
+        public void OutputArray(int[,] array)
+        {
+            int i = 0;
+            int j = 0;
+
+            int line = array.GetLength(0);
+            int column = array.GetLength(1);
+
+            for (i = 0; i < line; i++)
+            {
+                for (j = 0; j < column; j++ )
+                {
+                    Console.Write($"{array[i,j]}\t");
+                }
+
+                Console.WriteLine();
+            }
         }
     }
 }

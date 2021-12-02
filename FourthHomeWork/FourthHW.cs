@@ -12,14 +12,17 @@ namespace FourthHomeWork
             int a = GetIntNumberFromUser("Введите диапазон чисел для заполнения массива от:");
             int b = GetIntNumberFromUser("до:");
 
-            int[] array = FormingAndFillingAnArray(lenght, a, b);
+            int[] array = CreateAndPopulatAnArray(lenght, a, b);
 
-            string result = SearchMinElementArray(array);  
+            Console.WriteLine("Массив");
+            OutputArray(array);
+
+            string result = SearchMinElementAndItsIndex(array);  
 
             Console.WriteLine($"Минимальный эллемент массива = {result}");
         }
 
-        public string SearchMinElementArray(int[] array)
+        public string SearchMinElementAndItsIndex(int[] array)
         {
             int i = 0;
             int minIndex = 0;
@@ -47,14 +50,17 @@ namespace FourthHomeWork
             int a = GetIntNumberFromUser("Введите диапазон чисел для заполнения массива от:");
             int b = GetIntNumberFromUser("до:");
 
-            int[] array = FormingAndFillingAnArray(lenght, a, b);
+            int[] array = CreateAndPopulatAnArray(lenght, a, b);
 
-            string result = SearchMaxElementArray(array);
+            Console.WriteLine("Массив");
+            OutputArray(array);
+
+            string result = SearchMaxElementAndItsIndex(array);
 
             Console.WriteLine($"Максимальный эллемент массива = {result}");
         }
 
-        public string SearchMaxElementArray(int[] array)
+        public string SearchMaxElementAndItsIndex(int[] array)
         {
             int i = 0;
             int maxIndex = 0;
@@ -81,14 +87,17 @@ namespace FourthHomeWork
             int a = GetIntNumberFromUser("Введите диапазон чисел для заполнения массива от:");
             int b = GetIntNumberFromUser("до:");
 
-            int[] array = FormingAndFillingAnArray(lenght, a, b);
+            int[] array = CreateAndPopulatAnArray(lenght, a, b);
 
-            int result = FindingTheSumOfTheElementsOfAnArrayWithAnOddIndex(array);
+            Console.WriteLine("Массив");
+            OutputArray(array);
+
+            int result = FindTheSumOddIndexedElements(array);
 
             Console.WriteLine($"Cумма элементов массива с нечетными индексами = {result}");
         }
 
-        public int FindingTheSumOfTheElementsOfAnArrayWithAnOddIndex(int[] array)
+        public int FindTheSumOddIndexedElements(int[] array)
         {
             int sum = 0;
             int i = 0;
@@ -108,14 +117,19 @@ namespace FourthHomeWork
             int a = GetIntNumberFromUser("Введите диапазон чисел для заполнения массива от:");
             int b = GetIntNumberFromUser("до:");
 
-            int[] array = FormingAndFillingAnArray(lenght, a, b);
+            int[] array = CreateAndPopulatAnArray(lenght, a, b);
 
-            int[] result = ReverseArray(array);
 
-            Console.WriteLine(result);
+            Console.WriteLine("Массив до ");
+            OutputArray(array);
+
+            Reverse(array);
+
+            Console.WriteLine("Массив после");
+            OutputArray(array);
         }
 
-        public int [] ReverseArray(int[] array)
+        public void Reverse(int[] array)
         {
             int tmp = 0;
             int j = array.Length - 1;
@@ -127,7 +141,6 @@ namespace FourthHomeWork
                 array[j - i] = tmp;
             }
 
-            return array;
         }
 
 
@@ -138,26 +151,29 @@ namespace FourthHomeWork
             int a = GetIntNumberFromUser("Введите диапазон чисел для заполнения массива от:");
             int b = GetIntNumberFromUser("до:");
 
-            int[] array = FormingAndFillingAnArray(lenght, a, b);
+            int[] array = CreateAndPopulatAnArray(lenght, a, b);
 
-            int result = FindingTheSumOfTheElementsOfAnArrayWithAnOddIndex(array);
+            Console.WriteLine("Массив");
+            OutputArray(array);
+
+            int result = GetCountOfOddElements(array);
 
             Console.WriteLine($"Количество нечетных элементов массива = {result}");
         }
 
-        public int FindTheNumberOfOddArrayElements(int[] array)
+        public int GetCountOfOddElements(int[] array)
         {
-            int j = 0;
+            int count = 0;
 
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] % 2 != 0)
                 {
-                    j++;
+                    count++;
                 }
             }
 
-            return j;
+            return count;
         }
 
 
@@ -169,14 +185,19 @@ namespace FourthHomeWork
             int a = GetIntNumberFromUser("Введите диапазон чисел для заполнения массива от:");
             int b = GetIntNumberFromUser("до:");
 
-            int[] array = FormingAndFillingAnArray(lenght, a, b);
+            int[] array = CreateAndPopulatAnArray(lenght, a, b);
 
-            int[] result = ReplacingTheFirstAndSecondHalfOfTheArray(array);
 
-            Console.WriteLine(result);
+            Console.WriteLine("Массив до ");
+            OutputArray(array);
+
+            SwapTheFirstAndSecondHalfOfTheArray(array);
+
+            Console.WriteLine("Массив после");
+            OutputArray(array);
         }
 
-        public int[] ReplacingTheFirstAndSecondHalfOfTheArray(int[] array)
+        public void SwapTheFirstAndSecondHalfOfTheArray(int[] array)
         {
             int tmp = 0;
             int j = array.Length / 2;
@@ -189,7 +210,6 @@ namespace FourthHomeWork
                 array[j + i + c] = tmp;
             }
 
-            return array;
         }
 
         //Отсортировать массив по возрастанию одним из способов:
@@ -200,14 +220,19 @@ namespace FourthHomeWork
             int a = GetIntNumberFromUser("Введите диапазон чисел для заполнения массива от:");
             int b = GetIntNumberFromUser("до:");
 
-            int[] array = FormingAndFillingAnArray(lenght, a, b);
+            int[] array = CreateAndPopulatAnArray(lenght, a, b);
 
-            int[] result = SortArrayAscendingUsingSelect(array);
+            Console.WriteLine("Массив до");
+            OutputArray(array);
 
-            Console.WriteLine(result);
+            SortArrayAscendingUsingSelect(array);
+            
+            Console.WriteLine("Массив после");
+            OutputArray(array);
+
         }
 
-        public int[] SortArrayAscendingUsingSelect(int[] array)
+        public void SortArrayAscendingUsingSelect(int[] array)
         {
             int minIndex = 0;
             int minValue = 0;
@@ -236,7 +261,6 @@ namespace FourthHomeWork
 
             }
 
-            return array;
         }
 
 
@@ -248,14 +272,17 @@ namespace FourthHomeWork
             int a = GetIntNumberFromUser("Введите диапазон чисел для заполнения массива от:");
             int b = GetIntNumberFromUser("до:");
 
-            int[] array = FormingAndFillingAnArray(lenght, a, b);
+            int[] array = CreateAndPopulatAnArray(lenght, a, b);
+            Console.WriteLine("Массив до");
+            OutputArray(array);
 
-            int[] result = SortingArrayDescendingUsingInsert(array);
+            SortArrayDescendingUsingInsert(array);
 
-            Console.WriteLine(result);
+            Console.WriteLine("Массив после");
+            OutputArray(array);
         }
 
-        public int[] SortingArrayDescendingUsingInsert(int[] array)
+        public void SortArrayDescendingUsingInsert(int[] array)
         {
             int tmp = 0;
             int j = 0;
@@ -273,11 +300,10 @@ namespace FourthHomeWork
                 }
             }
 
-            return array;
         }
 
         //
-        public int[] FormingAndFillingAnArray(int lenght, int a, int b)
+        public int[] CreateAndPopulatAnArray(int lenght, int a, int b)
         {
             int [] array = new int[lenght];
             Random rnd = new Random();
@@ -300,6 +326,15 @@ namespace FourthHomeWork
 
             return number;
         }
+        
+        public void OutputArray(int[] array)
+        {
+            int i = 0;
 
+            for (i=0; i<array.Length; i++)
+            {
+                Console.Write($"{array[i]}\t");
+            }
+        }
     }
 }
